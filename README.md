@@ -1,5 +1,7 @@
 # BDD Проект
 
+[![Java CI with Gradle](https://github.com/cybdar/bdd/actions/workflows/gradle.yml/badge.svg)](https://github.com/cybdar/bdd/actions)
+
 Тесты перевода денег между картами.
 
 ### **Быстрый старт**
