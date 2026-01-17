@@ -1,0 +1,57 @@
+plugins {
+    id 'java'
+    id 'idea'
+}
+
+group = 'ru.netology.bdd'
+version = '1.0-SNAPSHOT'
+
+sourceCompatibility = 11
+targetCompatibility = 11
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'com.codeborne:selenide:6.19.0'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.0'
+
+    testImplementation 'io.github.bonigarcia:webdrivermanager:5.6.3'
+
+    testImplementation 'org.assertj:assertj-core:3.24.2'
+
+    testImplementation 'org.slf4j:slf4j-simple:2.0.9'
+}
+
+test {
+    useJUnitPlatform()
+
+    systemProperties = [
+            'file.encoding': 'UTF-8',
+            'selenide.headless': System.getProperty('selenide.headless', 'true'),
+            'selenide.browser': 'chrome',
+            'selenide.timeout': '10000'
+    ]
+
+    testLogging {
+        events "passed", "skipped", "failed", "standardOut", "standardError"
+        exceptionFormat "full"
+    }
+
+    maxParallelForks = Runtime.runtime.availableProcessors() > 1 ? 2 : 1
+}
+
+idea {
+    module {
+        downloadJavadoc = true
+        downloadSources = true
+    }
+}
+
+wrapper {
+    gradleVersion = '8.5'
+    distributionType = Wrapper.DistributionType.ALL
+}
