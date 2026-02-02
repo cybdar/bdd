@@ -9,11 +9,9 @@ import static com.codeborne.selenide.Selenide.$$;
 
 public class DashboardPage {
     private final ElementsCollection cards = $$(".list__item");
-    private final String balanceStart = "баланс: ";
-    private final String balanceFinish = " р.";
 
     public DashboardPage() {
-        $("[data-test-id=dashboard]").shouldBe(Condition.visible);
+        $("h1").shouldHave(Condition.text("Ваши карты"));
     }
 
     public int getCardBalance(int index) {
@@ -30,22 +28,17 @@ public class DashboardPage {
     }
 
     public TransferPage selectCardToDeposit(int index) {
-        cards.get(index).$("[data-test-id='action-deposit']").click();
+        cards.get(index)
+                .$("div")
+                .$("[data-test-id='action-deposit']")
+                .click();
         return new TransferPage();
     }
 
-    public TransferPage selectFirstCardToDeposit() {
-        return selectCardToDeposit(0);
-    }
-
-    public TransferPage selectSecondCardToDeposit() {
-        return selectCardToDeposit(1);
-    }
-
     private int extractBalance(String text) {
-        int start = text.indexOf(balanceStart);
-        int finish = text.indexOf(balanceFinish);
-        String value = text.substring(start + balanceStart.length(), finish);
+        int start = text.indexOf("баланс: ");
+        int finish = text.indexOf(" р.");
+        String value = text.substring(start + "баланс: ".length(), finish);
         return Integer.parseInt(value.replaceAll("\\s+", ""));
     }
 }
