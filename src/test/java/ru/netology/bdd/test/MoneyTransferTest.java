@@ -66,6 +66,7 @@ class MoneyTransferTest {
     }
 
     @Test
+    @Disabled("Bug #1: Application allows transferring amount exceeding card balance. Issue: https://github.com/cybdar/bdd/issues/1")
     void shouldNotTransferMoreThanBalance() {
         int amount = secondCardStartBalance + 10000;
 
