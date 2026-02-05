@@ -9,9 +9,11 @@ import static com.codeborne.selenide.Selenide.$$;
 
 public class DashboardPage {
     private final ElementsCollection cards = $$(".list__item");
+    private final SelenideElement heading = $("h1");
 
     public DashboardPage() {
-        $("h1").shouldHave(Condition.text("Ваши карты"));
+        heading.shouldBe(Condition.visible)
+                .shouldHave(Condition.text("Ваши карты"));
     }
 
     public int getCardBalance(int index) {

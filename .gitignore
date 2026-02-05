@@ -1,36 +1,30 @@
+# Файлы операционных систем
 Thumbs.db*
 .DS_Store
-HELP.md
-.gradle
+
+# Gradle
+.gradle/
 build/
+gradle.properties
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-
-### IntelliJ IDEA ###
-.idea
+# IDE
+.idea/
 *.iws
 *.iml
 *.ipr
 out/
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-
-### VS Code ###
 .vscode/
 
-### Package Files ###
+# Скомпилированные файлы
+*.class
+*.log
+
+# Папки
+bin/
+target/
+allure-results/
+
+# Пакетные файлы
 *.jar
 *.war
 *.nar
@@ -39,13 +33,6 @@ out/
 *.tar.gz
 *.rar
 
-### Test Files ###
-artifacts/app-ibank-build-for-testers.jar
-allure-results/
-*.log
-test-results/
-
-### Exclusions ###
+# Исключения
+!artifacts/app-ibank-build-for-testers.jar
 !gradle/wrapper/gradle-wrapper.jar
-!**/src/main/**
-!**/src/test/**

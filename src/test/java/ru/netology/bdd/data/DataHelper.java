@@ -1,6 +1,24 @@
 package ru.netology.bdd.data;
 
+import lombok.Value;
+
 public class DataHelper {
+    @Value
+    public static class AuthInfo {
+        String login;
+        String password;
+    }
+
+    @Value
+    public static class VerificationCode {
+        String code;
+    }
+
+    @Value
+    public static class CardInfo {
+        String cardNumber;
+    }
+
     public static AuthInfo getAuthInfo() {
         return new AuthInfo("vasya", "qwerty123");
     }
@@ -15,38 +33,5 @@ public class DataHelper {
 
     public static CardInfo getSecondCardInfo() {
         return new CardInfo("5559 0000 0000 0002");
-    }
-
-    public static class AuthInfo {
-        private final String login;
-        private final String password;
-
-        public AuthInfo(String login, String password) {
-            this.login = login;
-            this.password = password;
-        }
-
-        public String getLogin() { return login; }
-        public String getPassword() { return password; }
-    }
-
-    public static class VerificationCode {
-        private final String code;
-
-        public VerificationCode(String code) {
-            this.code = code;
-        }
-
-        public String getCode() { return code; }
-    }
-
-    public static class CardInfo {
-        private final String cardNumber;
-
-        public CardInfo(String cardNumber) {
-            this.cardNumber = cardNumber;
-        }
-
-        public String getCardNumber() { return cardNumber; }
     }
 }

@@ -8,10 +8,10 @@
 
 ````
 mkdir -p artifacts
-wget -O artifacts/app.jar \
+wget -O artifacts/app-ibank-build-for-testers.jar \
 https://github.com/netology-code/aqa-homeworks/raw/master/bdd/app-ibank-build-for-testers.jar
 
-java -jar artifacts/app.jar  # В одном терминале
+java -jar artifacts/app-ibank-build-for-testers.jar  # В одном терминале
 ./gradlew test               # В другом терминале
 
 ````
